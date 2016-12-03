@@ -23,8 +23,6 @@ function FoundItemsDirective () {
 
 function FoundItemsDirectiveController () {
 	var ctrl = this;
-
-	ctrl.welcome = "hi";
 }
 
 NarrowItDownController.$inject = ['MenuSearchService'];
@@ -65,7 +63,6 @@ function MenuSearchService ($http) {
 	var service = this;
 
 	service.getMatchedMenuItems = function (searchTerm) {
-		console.log("in service");
 		return $http.get('https://davids-restaurant.herokuapp.com/menu_items.json').then(function (response) {
 			var menuItems = response.data.menu_items;
 			var foundItems = [];
@@ -75,7 +72,6 @@ function MenuSearchService ($http) {
 					foundItems.push(menuItems[i]);
 				}
 			}
-			console.log(foundItems);
 
 			return foundItems;
 		});
