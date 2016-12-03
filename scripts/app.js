@@ -30,25 +30,21 @@ function NarrowItDownController (MenuSearchService) {
 	var ctrl = this;
 
 	ctrl.searchTerm = '';
+	ctrl.dataLoading = false;
 
 	ctrl.buttonClicked = function () {
-		ctrl.found = [];
-		ctrl.empty = false;
 
 		if (ctrl.searchTerm) {
+			ctrl.dataLoading = true;
+
 			MenuSearchService.getMatchedMenuItems(ctrl.searchTerm).then(function (response) {
 				ctrl.found = response;
-
-				if (ctrl.found.length === 0) {
-					ctrl.empty = true;
-				}
-				else {
-					ctrl.empty = false;
-				}
+				ctrl.dataLoading = false;
 			});
 		}
 		else {
-			ctrl.empty = true;
+			ctrl.found = [];
+			ctrl.dataLoading = false;
 		}
 		
 	}

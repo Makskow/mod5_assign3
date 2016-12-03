@@ -18,6 +18,7 @@
     <div class="form-group narrow-button">
       <button class="btn btn-primary" ng-click="ctrl.buttonClicked()">Narrow It Down For Me!</button>
     </div>
+    <div ng-if="ctrl.dataLoading" class="loader"></div>
 
     <!-- found-items should be implemented as a component -->
     <found-items 
@@ -26,7 +27,7 @@
       on-remove="ctrl.removeItem(index)">
     </found-items>
 
-    <p ng-if="ctrl.empty">Nothing found</p>
+    <p ng-if="ctrl.found.length === 0">Nothing found</p>
   </div>
 
 </body>
