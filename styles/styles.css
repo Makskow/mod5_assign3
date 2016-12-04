@@ -2,7 +2,9 @@
   margin-top: 100px;
 }
 #list li {
-  margin-top: 5px;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid gray;
 }
 #list li button {
   margin-left: 20px;
